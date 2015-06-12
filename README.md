@@ -1,21 +1,20 @@
+Debian Dynamic Message of the Day with Updates
+================================================
+
 # install figlet to enable ASCII art
 sudo apt-get install figlet
 
 # create directory
-mkdir /etc/update-motd.d/
+sudo git clone https://github.com/mckinnon81/dynamic-motd.git /etc/update-motd.d
 
 # change to new directory
 cd /etc/update-motd.d/
 
-# create dynamic files
-touch 00-header && touch 10-sysinfo && touch 90-footer
-
-# make files executable
-chmod +x /etc/update-motd.d/*
-
 # remove MOTD file
-rm /etc/motd
+sudo rm -frv /etc/motd
 
 # symlink dynamic MOTD file
-ln -s /var/run/motd /etc/motd
+sudo ln -s /var/run/motd /etc/motd
+
+# Reboot System for settings to take effect
 
